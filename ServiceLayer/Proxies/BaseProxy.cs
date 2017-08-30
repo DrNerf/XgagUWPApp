@@ -11,6 +11,17 @@ namespace ServiceLayer
     internal class ProxyBase
     {
         /// <summary>
+        /// Gets the base API address.
+        /// </summary>
+        protected string BaseApiAddress
+        {
+            get
+            {
+                return $"{RuntimeInfo.BaseWebsiteAddress}/api/";
+            }
+        }
+
+        /// <summary>
         /// Safes the execute.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -47,15 +58,19 @@ namespace ServiceLayer
             }
         }
 
+        /// <summary>
+        /// Creates the HTTP client.
+        /// </summary>
+        /// <returns>The HTTP client.</returns>
         protected HttpClient CreateHttpClient()
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //if (m_UserSession.SessionToken != default(Guid))
-            //{
-            //    client.DefaultRequestHeaders.Add("SessionToken", m_UserSession.SessionToken.ToString());
-            //}
+            if (RuntimeInfo.SessionInfo != null)
+            {
+                client.DefaultRequestHeaders.Add("SessionToken", RuntimeInfo.SessionInfo.SessionToken.ToString());
+            }
 
             return client;
         }
