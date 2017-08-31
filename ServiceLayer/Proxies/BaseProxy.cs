@@ -28,11 +28,11 @@ namespace ServiceLayer
         /// <param name="method">The method.</param>
         /// <returns>The task executing the method.</returns>
         /// <exception cref="ServiceLayer.ProxyException"></exception>
-        protected Task<T> SafeExecute<T>(Func<T> method)
+        protected Task<T> SafeExecute<T>(Func<Task<T>> method)
         {
             try
             {
-                return Task.Factory.StartNew(method);
+                return method?.Invoke();
             }
             catch (Exception ex)
             {
@@ -46,11 +46,11 @@ namespace ServiceLayer
         /// <param name="method">The method.</param>
         /// <returns>The task of the method.</returns>
         /// <exception cref="ServiceLayer.ProxyException"></exception>
-        protected Task SafeExecute(Action method)
+        protected Task SafeExecute(Func<Task> method)
         {
             try
             {
-                return Task.Factory.StartNew(method);
+                return method?.Invoke();
             }
             catch (Exception ex)
             {

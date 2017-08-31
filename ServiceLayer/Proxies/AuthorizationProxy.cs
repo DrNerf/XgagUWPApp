@@ -20,7 +20,7 @@ namespace ServiceLayer
         /// <returns>
         /// Login the user.
         /// </returns>
-        public Task Login(string username, string password)
+        public Task<ISessionModel> Login(string username, string password)
         {
             return SafeExecute(async () => 
             {
@@ -34,9 +34,15 @@ namespace ServiceLayer
                     });
 
                     var response = await client.PostAsync($"{BaseApiAddress}auth/login", content);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new UnauthorizedException();
+                    }
+                    
                     var result = await response.Content.ReadAsStringAsync();
                     var session = JsonConvert.DeserializeObject<SessionModel>(result);
                     RuntimeInfo.SessionInfo = session;
+                    return (ISessionModel)session;
                 }
             });
         }

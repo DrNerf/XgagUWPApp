@@ -10,7 +10,11 @@ namespace ServiceLayer
         /// <summary>
         /// Logins this instance.
         /// </summary>
-        /// <returns>Login the user.</returns>
-        Task Login(string username, string password);
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns>
+        /// Login the user.
+        /// </returns>
+        Task<ISessionModel> Login(string username, string password);
     }
 }

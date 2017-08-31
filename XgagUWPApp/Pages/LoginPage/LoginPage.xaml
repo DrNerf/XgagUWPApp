@@ -14,16 +14,23 @@
             Sign in into XGAG
         </TextBlock>
         <TextBox PlaceholderText="Username"
+                 Text="{Binding Username, Mode=TwoWay}"
+                 IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
                  Margin="0,0,0,5" />
         <PasswordBox PlaceholderText="Password"
+                     Password="{Binding Password, Mode=TwoWay}"
+                     IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
                      Margin="0,0,0,5" />
         <Button HorizontalAlignment="Stretch"
-                Command="{Binding LoginCommand}">SIGN IN</Button>
+                IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
+                Command="{Binding LoginCommand}">
+            Sign in
+        </Button>
 
-        <ProgressRing IsActive="{Binding IsBusy}"
-                      Margin="10"
-                      HorizontalAlignment="Stretch"
-                      Height="100"></ProgressRing>
-        
+        <ProgressBar IsIndeterminate="True"
+                     Visibility="{Binding IsBusy, Converter={StaticResource VisibilityValueConverter}}"
+                     Margin="10"
+                     HorizontalAlignment="Stretch" />
+
     </StackPanel>
 </Page>

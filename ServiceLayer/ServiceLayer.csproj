@@ -115,6 +115,7 @@
     <Compile Include="Proxies\AuthorizationProxy.cs" />
     <Compile Include="Proxies\BaseProxy.cs" />
     <Compile Include="System\Exceptions\ProxyException.cs" />
+    <Compile Include="System\Exceptions\UnauthorizedException.cs" />
     <Compile Include="System\Infrastructure\RuntimeInfo.cs" />
     <EmbeddedResource Include="Properties\ServiceLayer.rd.xml" />
   </ItemGroup>
