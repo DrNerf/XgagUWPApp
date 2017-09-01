@@ -5,69 +5,77 @@
     xmlns:local="using:XgagUWPApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sl="using:ServiceLayer"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="DefaultTemplate" x:DataType="local:MenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="{x:Bind Icon, Mode=OneWay}" Foreground="White" />
+                <TextBlock Grid.Column="1" Text="{x:Bind Name, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" Foreground="White" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <RelativePanel>
-            <Button Name="HamburgerButton" 
-                    FontFamily="Segoe MDL2 Assets" 
-                    Content="&#xE700;" 
-                    FontSize="36" 
-                    Click="HamburgerButton_Click" />
-        </RelativePanel>
-        <SplitView Name="HamburgerSplitView" 
-                   Grid.Row="1" 
-                   DisplayMode="CompactOverlay" 
-                   OpenPaneLength="200" 
-                   CompactPaneLength="56" 
-                   HorizontalAlignment="Left">
-            <SplitView.Pane>
-                <StackPanel>
-                    <StackPanel Padding="10"
-                                Visibility="{Binding Path=IsPaneOpen, ElementName=HamburgerSplitView, Converter={StaticResource VisibilityValueConverter}}">
-                        <Image Source="{Binding AvatarAddress}"
-                               MaxWidth="150" />
-                        <TextBlock HorizontalAlignment="Center"
-                                   FontSize="18"
-                                   Text="{Binding Username}" />
-                    </StackPanel>
-                    <ListBox SelectionMode="Single" 
-                             Name="IconsListBox" 
-                             SelectionChanged="IconsListBox_SelectionChanged">
-                        <ListBoxItem Name="ShareListBoxItem">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontFamily="Segoe MDL2 Assets" 
-                                           FontSize="36" 
-                                           Text="&#xE72D;" />
-                                <TextBlock Text="Share" 
-                                           FontSize="24" 
-                                           Margin="20,0,0,0" />
-                            </StackPanel>
-                        </ListBoxItem>
+        <controls:HamburgerMenu PaneBackground="Black" x:Name="HamburgerMenu"
+                                Foreground="White"
+                                ItemTemplate="{StaticResource DefaultTemplate}"
+                                OptionsItemTemplate="{StaticResource DefaultTemplate}"
+                                ItemsSource="{Binding MenuActions}"
+                                ItemClick="OnMenuItemClick"
+                                OptionsItemClick="OnMenuItemClick"
+                                OpenPaneLength="240"
+                                DisplayMode="CompactOverlay"
+                                CompactPaneLength="48"
+                                HamburgerHeight="48"
+                                HamburgerVisibility="Visible"
+                                IsPaneOpen="False">
+            <!--  Items  -->
+            <!--<controls:HamburgerMenu.ItemsSource>
+                <controls:HamburgerMenuItemCollection>
+                    <controls:HamburgerMenuImageItem Label="Home"
+                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
+                    <controls:HamburgerMenuImageItem Label="Quotes"
+                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
+                    <controls:HamburgerMenuImageItem Label="Shit List" 
+                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
+                    <controls:HamburgerMenuImageItem Label="Good Guy List" 
+                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
+                </controls:HamburgerMenuItemCollection>
+            </controls:HamburgerMenu.ItemsSource>-->
 
-                        <ListBoxItem Name="FavoritesListBoxItem">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontFamily="Segoe MDL2 Assets" 
-                                           FontSize="36" 
-                                           Text="&#xE734;" />
-                                <TextBlock Text="Favorites" 
-                                           FontSize="24" 
-                                           Margin="20,0,0,0" />
-                            </StackPanel>
-                        </ListBoxItem>
+            <!--  Options  -->
+            <!--<controls:HamburgerMenu.OptionsItemsSource>
+                <controls:HamburgerMenuItemCollection>
+                    <controls:HamburgerMenuGlyphItem Glyph="&#57627;"
+                                                     Label="About" />
+                </controls:HamburgerMenuItemCollection>
+            </controls:HamburgerMenu.OptionsItemsSource>-->
 
-                    </ListBox>
-                </StackPanel>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <TextBlock Name="ResultTextBlock" />
-            </SplitView.Content>
-        </SplitView>
-
+            <!--  Content  -->
+            <!--<Grid x:Name="ContentGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                        Background="Black">
+                    <TextBlock x:Name="Header"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="24"
+                               Foreground="White"
+                               Text="{Binding Label}" />
+                </Border>
+                <Image x:Name="Image"
+                       Grid.Row="1"
+                       Source="{Binding Thumbnail}" />
+            </Grid>-->
+            <Frame x:Name="ContentFrame" />
+        </controls:HamburgerMenu>
     </Grid>
 </Page>

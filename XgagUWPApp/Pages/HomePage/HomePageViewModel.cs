@@ -1,4 +1,6 @@
 ﻿using ServiceLayer;
+using System.Collections.Generic;
+using Windows.UI.Xaml.Controls;
 
 namespace XgagUWPApp
 {
@@ -27,6 +29,20 @@ namespace XgagUWPApp
             get
             {
                 return RuntimeInfo.SessionInfo.Avatar;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the menu actions.
+        /// </summary>
+        public IEnumerable<MenuItem> MenuActions
+        {
+            get
+            {
+                yield return new MenuItem() { Icon = Symbol.Home, Name = "Home", PageType = typeof(PostsPage) };
+                yield return new MenuItem() { Icon = Symbol.Comment, Name = "Quotes" };
+                yield return new MenuItem() { Icon = Symbol.Like, Name = "Good Guy List" };
+                yield return new MenuItem() { Icon = Symbol.Dislike, Name = "Shit List" };
             }
         }
 

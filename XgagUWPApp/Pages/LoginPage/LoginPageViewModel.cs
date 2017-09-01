@@ -28,6 +28,7 @@ namespace XgagUWPApp
             {
                 m_Username = value;
                 NotifyPropertyChanged();
+                LoginCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -44,6 +45,7 @@ namespace XgagUWPApp
             {
                 m_Password = value;
                 NotifyPropertyChanged();
+                LoginCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -57,8 +59,17 @@ namespace XgagUWPApp
         /// </summary>
         public LoginPageViewModel()
         {
-            LoginCommand = new DelegateCommand(Login);
+            LoginCommand = new DelegateCommand(Login, CanLogin);
             m_AuthorizationProxy = ProxyFactory.Instance.CreateAuthorizationProxy();
+        }
+
+        protected override void Load()
+        {
+        }
+
+        private bool CanLogin()
+        {
+            return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);
         }
 
         private async void Login()
@@ -86,10 +97,6 @@ namespace XgagUWPApp
             {
                 IsBusy = false;
             }
-        }
-
-        protected override void Load()
-        {
         }
     }
 }

@@ -16,15 +16,13 @@ namespace XgagUWPApp
             DataContext = new HomePageViewModel();
         }
 
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        private void OnMenuItemClick(object sender, ItemClickEventArgs e)
         {
-            HamburgerSplitView.IsPaneOpen = !HamburgerSplitView.IsPaneOpen;
-        }
-
-        private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ShareListBoxItem.IsSelected) { ResultTextBlock.Text = "Share"; }
-            else if (FavoritesListBoxItem.IsSelected) { ResultTextBlock.Text = "Favorites"; }
+            var menuItem = e.ClickedItem as MenuItem;
+            if (menuItem.PageType != null)
+            {
+                ContentFrame.Navigate(menuItem.PageType); 
+            }
         }
     }
 }
