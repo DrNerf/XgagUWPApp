@@ -8,24 +8,50 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
     <Page.Resources>
-        <DataTemplate x:Key="DefaultTemplate" x:DataType="local:MenuItem">
-            <Grid Width="240" Height="48">
+        <DataTemplate x:Key="DefaultTemplate" 
+                      x:DataType="local:MenuItem">
+            <Grid Width="240" 
+                  Height="48">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <SymbolIcon Grid.Column="0" Symbol="{x:Bind Icon, Mode=OneWay}" Foreground="White" />
-                <TextBlock Grid.Column="1" Text="{x:Bind Name, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" Foreground="White" />
+                <SymbolIcon Grid.Column="0" 
+                            Symbol="{x:Bind Icon, Mode=OneWay}" 
+                            Foreground="White" />
+                <TextBlock Grid.Column="1" 
+                           Text="{x:Bind Name, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" Foreground="White" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="HamburgerMenuImageItem" 
+                      x:DataType="local:MenuItem">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Image}" 
+                       Stretch="Uniform"
+                       HorizontalAlignment="Right" />
+                <TextBlock Grid.Column="1" 
+                           Text="{Binding Name}"
+                           Margin="5,0,0,0"
+                           Foreground="White" 
+                           FontSize="16" 
+                           VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <controls:HamburgerMenu PaneBackground="Black" x:Name="HamburgerMenu"
+        <controls:HamburgerMenu PaneBackground="Black" 
+                                x:Name="HamburgerMenu"
                                 Foreground="White"
                                 ItemTemplate="{StaticResource DefaultTemplate}"
-                                OptionsItemTemplate="{StaticResource DefaultTemplate}"
                                 ItemsSource="{Binding MenuActions}"
+                                OptionsItemTemplate="{StaticResource HamburgerMenuImageItem}"
+                                OptionsItemsSource="{Binding MenuOptionsActions}"
+                                Loaded="HamburgerMenu_Loaded"
                                 ItemClick="OnMenuItemClick"
                                 OptionsItemClick="OnMenuItemClick"
                                 OpenPaneLength="240"
@@ -51,8 +77,8 @@
             <!--  Options  -->
             <!--<controls:HamburgerMenu.OptionsItemsSource>
                 <controls:HamburgerMenuItemCollection>
-                    <controls:HamburgerMenuGlyphItem Glyph="&#57627;"
-                                                     Label="About" />
+                    <controls:HamburgerMenuImageItem Thumbnail="{Binding ElementName=HamburgerMenu, Path=DataContext.AvatarAddress}"
+                                                     Label="{Binding ElementName=HamburgerMenu, Path=DataContext.Username}" />
                 </controls:HamburgerMenuItemCollection>
             </controls:HamburgerMenu.OptionsItemsSource>-->
 

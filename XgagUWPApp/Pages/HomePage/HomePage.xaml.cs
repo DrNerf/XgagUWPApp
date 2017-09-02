@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -21,7 +22,21 @@ namespace XgagUWPApp
             var menuItem = e.ClickedItem as MenuItem;
             if (menuItem.PageType != null)
             {
-                ContentFrame.Navigate(menuItem.PageType); 
+                ContentFrame.Navigate(menuItem.PageType);
+            }
+        }
+
+        private void HamburgerMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+            var hamburgerMenu = sender as HamburgerMenu;
+            if (hamburgerMenu != null)
+            {
+                hamburgerMenu.SelectedIndex = 0;
+                var menuItem = hamburgerMenu.SelectedItem as MenuItem;
+                if (menuItem != null && menuItem.PageType != null)
+                {
+                    ContentFrame.Navigate(menuItem.PageType); 
+                }
             }
         }
     }

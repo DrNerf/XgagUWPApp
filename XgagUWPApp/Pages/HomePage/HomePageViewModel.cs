@@ -1,5 +1,6 @@
 ﻿using ServiceLayer;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.UI.Xaml.Controls;
 
 namespace XgagUWPApp
@@ -43,6 +44,14 @@ namespace XgagUWPApp
                 yield return new MenuItem() { Icon = Symbol.Comment, Name = "Quotes" };
                 yield return new MenuItem() { Icon = Symbol.Like, Name = "Good Guy List" };
                 yield return new MenuItem() { Icon = Symbol.Dislike, Name = "Shit List" };
+            }
+        }
+
+        public IEnumerable<MenuItem> MenuOptionsActions
+        {
+            get
+            {
+                yield return new MenuItem() { Image = AvatarAddress, Name = Username };
             }
         }
 

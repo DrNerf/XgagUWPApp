@@ -22,5 +22,7 @@ namespace XgagUWPApp
         /// Gets or sets the type of the page.
         /// </summary>
         public Type PageType { get; set; }
+
+        public string Image { get; set; }
     }   
 }
