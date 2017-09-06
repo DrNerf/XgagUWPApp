@@ -47,21 +47,15 @@ namespace XgagUWPApp
             }
         }
 
+        /// <summary>
+        /// Gets the menu options actions.
+        /// </summary>
         public IEnumerable<MenuItem> MenuOptionsActions
         {
             get
             {
                 yield return new MenuItem() { Image = AvatarAddress, Name = Username };
             }
-        }
-
-        /// <summary>
-        /// Loads this instance.
-        /// </summary>
-        /// <exception cref="System.NotImplementedException"></exception>
-        protected override void Load()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

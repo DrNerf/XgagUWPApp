@@ -6,6 +6,7 @@
     RequestedTheme="Dark">
     <Application.Resources>
         <local:OppositeBooleanValueConverter x:Key="OppositeBooleanValueConverter" />
+        <local:VisibilityOppositeValueConverter x:Key="VisibilityOppositeValueConverter" />
         <local:VisibilityValueConverter x:Key="VisibilityValueConverter" />
     </Application.Resources>
 </Application>

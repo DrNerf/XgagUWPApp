@@ -63,10 +63,6 @@ namespace XgagUWPApp
             m_AuthorizationProxy = ProxyFactory.Instance.CreateAuthorizationProxy();
         }
 
-        protected override void Load()
-        {
-        }
-
         private bool CanLogin()
         {
             return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);

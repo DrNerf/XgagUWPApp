@@ -22,9 +22,15 @@ namespace XgagUWPApp
     /// </summary>
     public sealed partial class PostsPage : Page
     {
+        /// <summary>
+        /// Gets or sets the view model.
+        /// </summary>
+        public PostsPageViewModel ViewModel { get; set; }
+
         public PostsPage()
         {
             this.InitializeComponent();
+            DataContext = ViewModel = new PostsPageViewModel();
         }
     }
 }

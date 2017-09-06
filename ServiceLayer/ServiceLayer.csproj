@@ -107,13 +107,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Factories\ProxyFactory.cs" />
+    <Compile Include="Interfaces\Models\IPostModel.cs" />
     <Compile Include="Interfaces\Models\ISessionModel.cs" />
     <Compile Include="Interfaces\Proxies\IAuthorizationProxy.cs" />
+    <Compile Include="Interfaces\Proxies\IPostsProxy.cs" />
     <Compile Include="Interfaces\Proxies\IRestfulProxy.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\SessionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxies\AuthorizationProxy.cs" />
     <Compile Include="Proxies\BaseProxy.cs" />
+    <Compile Include="Proxies\PostsProxy.cs" />
+    <Compile Include="System\Exceptions\HttpException.cs" />
     <Compile Include="System\Exceptions\ProxyException.cs" />
     <Compile Include="System\Exceptions\UnauthorizedException.cs" />
     <Compile Include="System\Infrastructure\RuntimeInfo.cs" />

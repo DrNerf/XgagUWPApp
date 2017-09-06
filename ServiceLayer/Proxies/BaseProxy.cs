@@ -74,5 +74,18 @@ namespace ServiceLayer
 
             return client;
         }
+
+        /// <summary>
+        /// Validates the HTTP response.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ServiceLayer.HttpException"></exception>
+        protected void ValidateHttpResponse(HttpResponseMessage message)
+        {
+            if (!message.IsSuccessStatusCode)
+            {
+                throw new HttpException(message.StatusCode, message.ReasonPhrase);
+            }
+        }
     }
 }

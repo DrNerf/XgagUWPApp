@@ -23,6 +23,9 @@ namespace XgagUWPApp
         /// </summary>
         public Type PageType { get; set; }
 
+        /// <summary>
+        /// Gets or sets the image.
+        /// </summary>
         public string Image { get; set; }
     }   
 }

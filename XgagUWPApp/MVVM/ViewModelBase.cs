@@ -34,35 +34,15 @@ namespace XgagUWPApp
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary>
-        /// Initializes this instance.
-        /// </summary>
-        protected void Initialize()
+        protected void ExecuteInBackground(Action method)
         {
             IsBusy = true;
-            Task.Factory.StartNew(Load).ContinueWith((t) => 
+
+            Task.Factory.StartNew(method).ContinueWith(t =>
             {
                 IsBusy = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
-
-        /// <summary>
-        /// Executes the method with busy indicator.
-        /// </summary>
-        /// <param name="method">The method.</param>
-        protected void BusyExecute(Task method)
-        {
-            IsBusy = true;
-            method.ContinueWith((t) =>
-            {
-                IsBusy = false;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
-        }
-
-        /// <summary>
-        /// Loads this instance.
-        /// </summary>
-        protected abstract void Load();
 
         /// <summary>
         /// Notifies the property changed.

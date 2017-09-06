@@ -13,13 +13,14 @@ namespace ServiceLayer
         /// Gets this instance.
         /// </summary>
         /// <returns>All items.</returns>
-        Task<IEnumerable<T>> Get();
+        Task<IEnumerable<T>> Get(int skip = 0, int take = 1);
+
 
         /// <summary>
-        /// Gets the specified identifier.
+        /// Gets the by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>The item.</returns>
-        Task<T> Get(int id);
+        Task<T> GetById(int id);
     }
 }

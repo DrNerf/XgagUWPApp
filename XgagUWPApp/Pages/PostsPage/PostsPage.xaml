@@ -5,10 +5,66 @@
     xmlns:local="using:XgagUWPApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sl="using:ServiceLayer"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center">Posts</TextBlock>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          Margin="10">
+        <ListView ItemsSource="{x:Bind ViewModel.Posts, Mode=OneWay}"
+                  SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="sl:IPostModel">
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <TextBlock Text="{x:Bind Title}"
+                                   FontSize="24" />
+                        <Grid HorizontalAlignment="Stretch">
+                            <controls:ImageEx PlaceholderSource="/Assets/SplashScreen.scale-200.png"
+                                              PlaceholderStretch="UniformToFill"
+                                              Source="{x:Bind ImageUrl}"
+                                              Visibility="{x:Bind IsYouTubePost, Converter={StaticResource VisibilityOppositeValueConverter}}"
+                                              Stretch="UniformToFill" />
+                            <WebView Visibility="{x:Bind IsYouTubePost, Converter={StaticResource VisibilityValueConverter}}"
+                                     HorizontalAlignment="Stretch"
+                                     MinHeight="300"
+                                     local:WebView.NavigateIfNotNull="{x:Bind YouTubeLink}" />
+                            <controls:ImageEx Source="/Assets/SplashScreen.scale-200.png"
+                                              Opacity="0"
+                                              Stretch="UniformToFill"
+                                              Visibility="{x:Bind IsYouTubePost, Converter={StaticResource VisibilityValueConverter}}" />
+                        </Grid>
+                        <Grid HorizontalAlignment="Stretch">
+                            <TextBlock HorizontalAlignment="Left">
+                                <Run>Score: </Run>
+                                <Run Text="{x:Bind Score}"></Run>
+                            </TextBlock>
+                            <TextBlock HorizontalAlignment="Right">
+                                <Run>Posted at:</Run>
+                                <Run Text="{x:Bind DateCreated}"></Run>
+                            </TextBlock>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Margin="0,0,5,0">
+                                <SymbolIcon Symbol="Like" />
+                            </Button>
+                            <Button Margin="0,0,5,0">
+                                <SymbolIcon Symbol="Dislike" />
+                            </Button>
+                            <Button Margin="0,0,5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Message" />
+                                    <TextBlock Text="{x:Bind CommentsCount}"
+                                               Margin="5,0,0,0" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <ProgressRing Width="100"
+                      Height="100"
+                      IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" />
     </Grid>
 </Page>

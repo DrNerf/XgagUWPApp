@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                KeyDown="LoginForm_KeyDown"
                 Padding="10">
         <TextBlock HorizontalAlignment="Center"
                    Margin="0,0,0,5">
@@ -21,7 +22,8 @@
                      Password="{Binding Password, Mode=TwoWay}"
                      IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
                      Margin="0,0,0,5" />
-        <Button HorizontalAlignment="Stretch"
+        <Button Name="SignInButton"
+                HorizontalAlignment="Stretch"
                 IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
                 Command="{Binding LoginCommand}">
             Sign in

@@ -95,11 +95,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AttachedProperties\WebView.cs" />
     <Compile Include="Converters\OppositeBooleanValueConverter.cs" />
+    <Compile Include="Converters\VisibilityOppositeValueConverter.cs" />
     <Compile Include="Converters\VisibilityValueConverter.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
+    <Compile Include="Helpers\DispatcherHelper.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="MVVM\DelegateCommand.cs" />
+    <Compile Include="MVVM\IncrementalObservableCollection.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Pages\HomePage\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -112,6 +116,7 @@
     <Compile Include="Pages\PostsPage\PostsPage.xaml.cs">
       <DependentUpon>PostsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PostsPage\PostsPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIModels\MenuItem.cs" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,18 @@ namespace XgagUWPApp
         {
             this.InitializeComponent();
             DataContext = new LoginPageViewModel();
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Enter)
+            {
+                var viewModel = (LoginPageViewModel)DataContext;
+                if (viewModel.LoginCommand.CanExecute(null))
+                {
+                    viewModel.LoginCommand.Execute(null);
+                }
+            }
         }
     }
 }
