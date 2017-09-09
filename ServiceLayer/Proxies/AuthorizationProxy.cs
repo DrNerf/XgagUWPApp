@@ -26,6 +26,7 @@ namespace ServiceLayer
             {
                 using (var client = CreateHttpClient())
                 {
+                    await Task.Delay(3000);
                     var content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>()
                     {
                         new KeyValuePair<string, string>("UserName", username),

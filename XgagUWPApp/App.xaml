@@ -5,8 +5,17 @@
     xmlns:local="using:XgagUWPApp"
     RequestedTheme="Dark">
     <Application.Resources>
-        <local:OppositeBooleanValueConverter x:Key="OppositeBooleanValueConverter" />
-        <local:VisibilityOppositeValueConverter x:Key="VisibilityOppositeValueConverter" />
-        <local:VisibilityValueConverter x:Key="VisibilityValueConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark" Source="/Styles/Theme.xaml" />
+            </ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:OppositeBooleanValueConverter x:Key="OppositeBooleanValueConverter" />
+                    <local:VisibilityOppositeValueConverter x:Key="VisibilityOppositeValueConverter" />
+                    <local:VisibilityValueConverter x:Key="VisibilityValueConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

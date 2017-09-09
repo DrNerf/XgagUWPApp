@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XgagUWPApp">
+    <!-- Colors -->
+    <Color x:Key="XgagAccentColor">#df691a</Color>
+    <Color x:Key="XgagDarkAccentColor">#bf5a16</Color>
+    <Color x:Key="XgagDisabledColor">#666463</Color>
+    <Color x:Key="XgagBackgroundColor">#2b3e50</Color>
+    <Color x:Key="XgagLightBackgroundColor">#4e5d6c</Color>
+
+    <!--Brushes-->
+    <SolidColorBrush x:Key="XgagAccentBrush" Color="{StaticResource XgagAccentColor}" />
+
+    <!-- Button Theme -->
+    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="{StaticResource XgagBackgroundColor}" />
+    <SolidColorBrush x:Key="DefaultTextForegroundThemeBrush" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="ButtonForeground" Color="White" />
+    <SolidColorBrush x:Key="ButtonBackground" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
+    <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="{StaticResource XgagDisabledColor}" />
+
+    <!-- TextBox Theme -->
+    <SolidColorBrush x:Key="TextControlForeground" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="TextControlBackground" Color="{StaticResource XgagLightBackgroundColor}" />
+    <SolidColorBrush x:Key="TextControlBorderBrush" Color="{StaticResource XgagAccentColor}" />
+
+    <SolidColorBrush x:Key="TextControlBackgroundDisabled" Color="{StaticResource XgagDisabledColor}" />
+    <SolidColorBrush x:Key="TextControlBorderBrushDisabled" Color="{StaticResource XgagDarkAccentColor}" />
+    <SolidColorBrush x:Key="TextControlForegroundDisabled" Color="{StaticResource XgagLightBackgroundColor}" />
+
+    <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
+    <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="{StaticResource XgagLightBackgroundColor}" />
+    <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
+
+    <SolidColorBrush x:Key="TextControlForegroundFocused" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="{StaticResource XgagLightBackgroundColor}" />
+    <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="{StaticResource XgagAccentColor}" />
+
+</ResourceDictionary>
