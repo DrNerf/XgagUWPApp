@@ -15,11 +15,11 @@
             Sign in into XGAG
         </TextBlock>
         <TextBox PlaceholderText="Username"
-                 Text="{Binding Username, Mode=TwoWay}"
+                 Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
                  Margin="0,0,0,5" />
         <PasswordBox PlaceholderText="Password"
-                     Password="{Binding Password, Mode=TwoWay}"
+                     Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      IsEnabled="{Binding IsBusy, Converter={StaticResource OppositeBooleanValueConverter}}"
                      Margin="0,0,0,5" />
         <Button Name="SignInButton"

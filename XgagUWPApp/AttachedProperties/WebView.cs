@@ -11,7 +11,7 @@ namespace XgagUWPApp
     {
         // "NavigateIfNotNull" attached property for a WebView
         public static readonly DependencyProperty NavigateIfNotNullProperty =
-           DependencyProperty.RegisterAttached("NavigateIfNotNull", typeof(string), typeof(WebView), new PropertyMetadata("", OnNavigateIfNotNullChanged));
+           DependencyProperty.RegisterAttached("NavigateIfNotNull", typeof(string), typeof(Controls.WebView), new PropertyMetadata("", OnNavigateIfNotNullChanged));
 
         // Getter and Setter
         public static string GetNavigateIfNotNull(DependencyObject obj) { return (string)obj.GetValue(NavigateIfNotNullProperty); }

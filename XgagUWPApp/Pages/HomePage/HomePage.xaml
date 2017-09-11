@@ -18,9 +18,12 @@
                 </Grid.ColumnDefinitions>
                 <SymbolIcon Grid.Column="0" 
                             Symbol="{x:Bind Icon, Mode=OneWay}" 
-                            Foreground="White" />
+                            Foreground="{ThemeResource XgagAccentBrush}" />
                 <TextBlock Grid.Column="1" 
-                           Text="{x:Bind Name, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" Foreground="White" />
+                           Text="{x:Bind Name, Mode=OneWay}"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Foreground="{ThemeResource XgagAccentBrush}" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="HamburgerMenuImageItem" 
@@ -36,7 +39,7 @@
                 <TextBlock Grid.Column="1" 
                            Text="{Binding Name}"
                            Margin="5,0,0,0"
-                           Foreground="White" 
+                           Foreground="{ThemeResource XgagAccentBrush}" 
                            FontSize="16" 
                            VerticalAlignment="Center" />
             </Grid>
@@ -44,9 +47,9 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <controls:HamburgerMenu PaneBackground="Black" 
+        <controls:HamburgerMenu PaneBackground="{ThemeResource XgagLightBackgroundBrush}" 
                                 x:Name="HamburgerMenu"
-                                Foreground="White"
+                                Foreground="{ThemeResource XgagAccentBrush}"
                                 ItemTemplate="{StaticResource DefaultTemplate}"
                                 ItemsSource="{Binding MenuActions}"
                                 OptionsItemTemplate="{StaticResource HamburgerMenuImageItem}"
@@ -60,47 +63,6 @@
                                 HamburgerHeight="48"
                                 HamburgerVisibility="Visible"
                                 IsPaneOpen="False">
-            <!--  Items  -->
-            <!--<controls:HamburgerMenu.ItemsSource>
-                <controls:HamburgerMenuItemCollection>
-                    <controls:HamburgerMenuImageItem Label="Home"
-                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
-                    <controls:HamburgerMenuImageItem Label="Quotes"
-                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
-                    <controls:HamburgerMenuImageItem Label="Shit List" 
-                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
-                    <controls:HamburgerMenuImageItem Label="Good Guy List" 
-                                                     Thumbnail="/Assets/Square150x150Logo.scale-200.png"/>
-                </controls:HamburgerMenuItemCollection>
-            </controls:HamburgerMenu.ItemsSource>-->
-
-            <!--  Options  -->
-            <!--<controls:HamburgerMenu.OptionsItemsSource>
-                <controls:HamburgerMenuItemCollection>
-                    <controls:HamburgerMenuImageItem Thumbnail="{Binding ElementName=HamburgerMenu, Path=DataContext.AvatarAddress}"
-                                                     Label="{Binding ElementName=HamburgerMenu, Path=DataContext.Username}" />
-                </controls:HamburgerMenuItemCollection>
-            </controls:HamburgerMenu.OptionsItemsSource>-->
-
-            <!--  Content  -->
-            <!--<Grid x:Name="ContentGrid">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="48" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Border Grid.Row="0"
-                        Background="Black">
-                    <TextBlock x:Name="Header"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="24"
-                               Foreground="White"
-                               Text="{Binding Label}" />
-                </Border>
-                <Image x:Name="Image"
-                       Grid.Row="1"
-                       Source="{Binding Thumbnail}" />
-            </Grid>-->
             <Frame x:Name="ContentFrame" />
         </controls:HamburgerMenu>
     </Grid>

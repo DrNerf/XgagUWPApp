@@ -11,10 +11,14 @@
 
     <!--Brushes-->
     <SolidColorBrush x:Key="XgagAccentBrush" Color="{StaticResource XgagAccentColor}" />
-
-    <!-- Button Theme -->
+    <SolidColorBrush x:Key="XgagLightBackgroundBrush" Color="{StaticResource XgagLightBackgroundColor}" />
+    <SolidColorBrush x:Key="XgagDarkAccentBrush" Color="{StaticResource XgagDarkAccentColor}" />
+    
+    <!-- General -->
     <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="{StaticResource XgagBackgroundColor}" />
     <SolidColorBrush x:Key="DefaultTextForegroundThemeBrush" Color="{StaticResource XgagAccentColor}" />
+    
+    <!-- Button Theme -->
     <SolidColorBrush x:Key="ButtonForeground" Color="White" />
     <SolidColorBrush x:Key="ButtonBackground" Color="{StaticResource XgagAccentColor}" />
     <SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource XgagAccentColor}" />
@@ -26,6 +30,7 @@
     <SolidColorBrush x:Key="TextControlForeground" Color="{StaticResource XgagAccentColor}" />
     <SolidColorBrush x:Key="TextControlBackground" Color="{StaticResource XgagLightBackgroundColor}" />
     <SolidColorBrush x:Key="TextControlBorderBrush" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="TextControlPlaceholderForeground" Color="{StaticResource XgagAccentColor}" />
 
     <SolidColorBrush x:Key="TextControlBackgroundDisabled" Color="{StaticResource XgagDisabledColor}" />
     <SolidColorBrush x:Key="TextControlBorderBrushDisabled" Color="{StaticResource XgagDarkAccentColor}" />
@@ -34,9 +39,11 @@
     <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
     <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="{StaticResource XgagLightBackgroundColor}" />
     <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
+    <SolidColorBrush x:Key="TextControlPlaceholderForegroundPointerOver" Color="{StaticResource XgagDarkAccentColor}" />
 
     <SolidColorBrush x:Key="TextControlForegroundFocused" Color="{StaticResource XgagAccentColor}" />
     <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="{StaticResource XgagLightBackgroundColor}" />
     <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="{StaticResource XgagAccentColor}" />
+    <SolidColorBrush x:Key="TextControlPlaceholderForegroundFocused" Color="{StaticResource XgagDarkAccentColor}" />
 
 </ResourceDictionary>
